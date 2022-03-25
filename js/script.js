@@ -35,9 +35,29 @@ const jumbo = new Vue({
     el: '#app',
 
     data: {
+        // prendo l'array con le slide
         slides,
 
+        /* e dichiaro questa key per avere
+        la posizione della slide all'interno dell'array*/
         index: 0
     },
 
+    // creo i metodi
+    methods: {
+        // creo una condizione in cui per passare alla slide successiva, l'indice deve aumentare di uno
+        nextSlide() {
+            if (this.index < this.slides.length -1) {
+                this.index++;
+            }
+                
+        },
+
+        // invece per tornare alla slide precedente, l'index deve scendere di 1
+        previewSlide() {
+            if (this.index > 0) {
+                this.index--;
+            }
+        },
+    }
 });
