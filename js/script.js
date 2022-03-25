@@ -59,5 +59,18 @@ const jumbo = new Vue({
                 this.index--;
             }
         },
+
+        // creo una funzione in cui aggiungo la classe active solo se l'indice equivale alla foto grande
+        addActiveClass(element) {
+            
+            // ciclo ogni elemento dell'array con findIndex
+            const indexArray = this.slides.findIndex(
+                (slide) => slide.title === element.title   // se il valore title dell'elemento è uguale al titolo dell'indice dell'immagine
+            )
+
+
+            // ritorno una condizione in cui se i titoli sono uguali, aggiungo la classe active e thumb, altrimenti solo la classe thumb
+            return indexArray === this.index ? 'thumb active' : 'thumb';
+        },
     }
 });
