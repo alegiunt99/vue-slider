@@ -40,7 +40,9 @@ const jumbo = new Vue({
 
         /* e dichiaro questa key per avere
         la posizione della slide all'interno dell'array*/
-        index: 0
+        index: 0,
+
+        title: ''
     },
 
     // creo i metodi
@@ -68,9 +70,44 @@ const jumbo = new Vue({
                 (slide) => slide.title === element.title   // se il valore title dell'elemento è uguale al titolo dell'indice dell'immagine
             )
 
+            //se i titoli sono uguali, aggiungo la classe active e thumb,
+            if (indexArray === this.index) {
+                    return 'thumb active'
+            }
 
-            // ritorno una condizione in cui se i titoli sono uguali, aggiungo la classe active e thumb, altrimenti solo la classe thumb
-            return indexArray === this.index ? 'thumb active' : 'thumb';
+            //altrimenti solo la classe thumb
+            return 'thumb'
+
+            
         },
-    }
+
+        // creo una funzione che permette di aggiungere la classe active al click
+        /*activeOnClick(element) {
+
+            const clickAdd = this.slides.findIndex(
+                (slide) => slide.title === element.title
+            )
+            
+            if (clickAdd === this.index) {
+                return `:class = "thumb active"`;
+            } else {
+                return `:class = "thumb"`;
+            }
+        },*/
+
+        // creo una funzione che attiva e disattiva la visualizzazione al click
+        toggleActive(elemento) {
+
+            const slideImg = document.getElementsByClassName('thumb');
+
+            if (elemento === this.index) {
+
+                return slideImg.classList.add('active');
+            }
+        },
+
+        selectSlide(element) {              
+            this.title = element.title;
+            }
+    },
 });
