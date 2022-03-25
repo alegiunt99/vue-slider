@@ -37,7 +37,7 @@ const jumbo = new Vue({
     data: {
         slides,
 
-        positonSlide: 0
-    }
+        index: 0
+    },
 
 });
