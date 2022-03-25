@@ -27,3 +27,17 @@ const slides = [
 ];
 
 console.log(slides);
+
+
+const jumbo = new Vue({
+
+    // mi collego all'elemento con id 'app'
+    el: '#app',
+
+    data: {
+        slides,
+
+        positonSlide: 0
+    }
+
+});
